@@ -1,6 +1,7 @@
 import AreaChart from "./components/AreaChart";
 import BarChart from "./components/BarChart";
 import LineChart from "./components/LineChart";
+import GeoChart from "./components/GeoChart";
 
 export default function Home() {
   return (
@@ -14,6 +15,9 @@ export default function Home() {
         </GridItem>
         <GridItem title="Line Chart">
           <LineChart />
+        </GridItem>
+        <GridItem title="Geo Chart">
+          <GeoChart />
         </GridItem>
       </div>
     </main>
