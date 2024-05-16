@@ -1,38 +1,38 @@
 "use client";
-import { AreaChart, Area, ResponsiveContainer, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from "recharts";
+import { BarChart, Bar, ResponsiveContainer, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from "recharts";
 
-const productSales = [
+const salesData = [
   {
     month: "Jan",
-    product1: 2000,
-    product2: 1500,
+    revenue: 2000,
+    profit: 1500,
   },
   {
     month: "Feb",
-    product1: 3000,
-    product2: 4500,
+    revenue: 3000,
+    profit: 4500,
   },
   {
     month: "Mar",
-    product1: 3400,
-    product2: 3000,
+    revenue: 15000,
+    profit: 9000,
   },
   {
     month: "Apr",
-    product1: 5600,
-    product2: 4500,
+    revenue: 5600,
+    profit: 4500,
   },
   {
     month: "May",
-    product1: 9000,
-    product2: 18500,
+    revenue: 9000,
+    profit: 18500,
   },
 ];
 
-const AreaChartComponent = () => {
+const BarChartComponent = () => {
   return (
     <ResponsiveContainer width="100%" height="100%">
-      <AreaChart width={500} height={400} data={productSales} margin={{right: 20}}>
+      <BarChart width={500} height={400} data={salesData} margin={{right: 20}}>
         
         <YAxis />
         <XAxis dataKey="month" />
@@ -41,19 +41,11 @@ const AreaChartComponent = () => {
         <Tooltip content={<CustomTooltip />} />
         <Legend />
 
-        <Area
-          type="monotone"
-          dataKey="product1"
-          stroke="#2563eb"
-          fill="#3b82f6"
-        />
-        <Area
-          type="monotone"
-          dataKey="product2"
-          stroke="#7c3aed"
-          fill="#8b5cf6"
-        />
-      </AreaChart>
+        <Bar dataKey="revenue" fill="#2563eb" />
+        <Bar dataKey="profit" fill="#8b5cf6" />
+
+
+      </BarChart>
     </ResponsiveContainer>
   );
 };
@@ -64,11 +56,11 @@ const CustomTooltip = ({active, payload, label}) => {
       <div className="p-4 bg-slate-900 flex flex-col gap-4 rounded-md">
         <p className="text-medium text-lg">{label}</p>
         <p className="text-sm text-blue-400">
-          Product 1:
+          Revenue:
           <span className="ml-2">${payload[0].value}</span>
         </p>
         <p className="text-sm text-indigo-400">
-          Product 2:
+          Profit:
           <span className="ml-2">${payload[1].value}</span>
         </p>
       </div>
@@ -76,4 +68,4 @@ const CustomTooltip = ({active, payload, label}) => {
   }
 }
 
-export default AreaChartComponent;
+export default BarChartComponent;
