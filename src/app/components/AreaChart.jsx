@@ -44,7 +44,7 @@ const AreaChartComponent = () => {
         <Area
           type="monotone"
           dataKey="product1"
-          stroke="#2563eb"
+          stroke= "yellow"
           fill="#3b82f6"
         />
         <Area

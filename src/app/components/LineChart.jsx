@@ -1,5 +1,5 @@
 "use client";
-import { BarChart, Bar, ResponsiveContainer, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from "recharts";
+import { LineChart, Line, ResponsiveContainer, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from "recharts";
 
 const salesData = [
   {
@@ -29,23 +29,23 @@ const salesData = [
   },
 ];
 
-const BarChartComponent = () => {
+const LineChartComponent = () => {
   return (
     <ResponsiveContainer width="100%" height="100%">
-      <BarChart width={500} height={400} data={salesData} margin={{right: 20}}>
+      <LineChart width={500} height={400} data={salesData} margin={{right: 20}}>
         
         <YAxis />
         <XAxis dataKey="month" />
-        <CartesianGrid strokeDasharray="5 5" />
+        <CartesianGrid strokeDasharray="3 3" />
 
         <Tooltip content={<CustomTooltip />} />
         <Legend />
 
-        <Bar dataKey="revenue" fill="yellow" />
-        <Bar dataKey="profit" fill="#8b5cf6" />
+        <Line type="monotone" dataKey="revenue" stroke="yellow" />
+        <Line type="monotone" dataKey="profit" stroke="#8b5cf6" />
 
 
-      </BarChart>
+      </LineChart>
     </ResponsiveContainer>
   );
 };
@@ -68,4 +68,4 @@ const CustomTooltip = ({active, payload, label}) => {
   }
 }
 
-export default BarChartComponent;
+export default LineChartComponent;

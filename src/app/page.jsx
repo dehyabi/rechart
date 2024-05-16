@@ -1,5 +1,6 @@
 import AreaChart from "./components/AreaChart";
 import BarChart from "./components/BarChart";
+import LineChart from "./components/LineChart";
 
 export default function Home() {
   return (
@@ -11,7 +12,9 @@ export default function Home() {
         <GridItem title="Bar Chart">
           <BarChart />
         </GridItem>
-        <GridItem title="Line Chart"></GridItem>
+        <GridItem title="Line Chart">
+          <LineChart />
+        </GridItem>
       </div>
     </main>
   );
